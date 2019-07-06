@@ -44,7 +44,8 @@ class App {
             sslValidate: true,
             sslCA: this.ca,
             sslCert: this.cert,
-            sslKey: this.cert
+            sslKey: this.cert,
+            useNewUrlParser: true
         }
         mongoose.connect(this.mongoUrl, options);
     }
