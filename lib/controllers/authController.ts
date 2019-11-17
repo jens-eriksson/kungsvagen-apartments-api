@@ -7,8 +7,10 @@ const ANONYMOUS_ID = "5c80cd6b37c972165c7a0823";
 export class AuthController {
 
     public signIn(req: Request, res: Response) {
+        console.log('signIn');
         User.findOne({ email: req.body.email }, (err, user) => {
             if (err) {
+                console.log(err);
                 res.status(401).send("Login faild");
                 return;
             }
