@@ -19,7 +19,7 @@ export class SalesAgentController {
     }
 
     public getAll(req, res) {
-        SalesAgent.find({}, (err, salesAgents) => {
+        SalesAgent.find({}).sort({'name' : 'asc'}).exec((err, salesAgents) => {
             if (err) {
                 res.send(err);
             }
