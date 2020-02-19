@@ -19,11 +19,8 @@ export class UnitController {
     }
 
     public getAll(req, res) {
-        let query = Unit.find({}).select("-documents");
-        if(req.user && req.user.role == "admin") {
-            query = Unit.find({});
-        }
-        
+        let query = Unit.find({});
+
         query.exec((err, units) => {
             if (err) {
                 res.send(err);
@@ -33,10 +30,7 @@ export class UnitController {
     }
 
     public getByKey(req, res) {
-        let query = Unit.findOne({ key: req.params.id }).select("-documents");
-        if(req.user && req.user.role == "admin") {
-            query = Unit.findOne({ key: req.params.id });
-        }
+        let query = Unit.findOne({ key: req.params.id });
 
         query.exec((err, units) => {
             if (err) {
